@@ -25,10 +25,10 @@ const PatientSchema = new mongoose.Schema({
     originalFrequency: {
         type: Number,
     },
-    currentMonth: {
+    currentWeek: {
         type: String,
     },
-    patientReminderMonth: {
+    patientReminderWeek: {
         type: String,
     }
 })
