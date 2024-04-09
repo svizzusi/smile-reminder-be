@@ -5,6 +5,8 @@ const passport = require('passport')
 const session = require('express-session')
 require('dotenv').config({path: './config/.env'})
 
+const patientRoutes = require('./routes/Patients')
+
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -56,8 +58,5 @@ const connectDB = async () => {
     connectDB();
 
 
-// Global error handler middleware
-app.use((err, req, res, next) => {
-    console.error('Global error handler:', err);
-    res.status(500).json({ error: 'Internal server error' });
-  });
+// Use your routes here
+    app.use('/patients', patientRoutes)
