@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const passport = require('passport')
-const session = require('express-session')
+// const session = require('express-session')
 require('dotenv').config({path: './config/.env'})
 
 const patientRoutes = require('./routes/Patients')
@@ -34,7 +34,7 @@ const allowedOrigins = [
     app.use(cors(corsOptions));
     app.use(express.json());
     app.use(passport.initialize());
-    app.use(passport.session());
+    // app.use(passport.session());
 
 // Define a function to connect to the database
 const connectDB = async () => {

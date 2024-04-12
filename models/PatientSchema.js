@@ -34,4 +34,4 @@ const PatientSchema = new mongoose.Schema({
 })
 
 // Export the model based on the defined schema
-module.exports = mongoose.model('Patient', PatientSchema)
+module.exports = mongoose.model('patients', PatientSchema)
