@@ -30,7 +30,12 @@ const PatientSchema = new mongoose.Schema({
     },
     patientReminderWeek: {
         type: String,
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Users",
+        required: true,
+    },
 })
 
 // Export the model based on the defined schema

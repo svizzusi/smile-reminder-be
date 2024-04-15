@@ -14,12 +14,12 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    savedProducts: {
+    savedPatients: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
+        ref: "Patients",
     }
 })
 
 
 // Export the model based on the defined schema
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('Users', UserSchema)

@@ -22,7 +22,7 @@ module.exports = {
                     message: "User already exists, login instead",
                     success: false,
                 })
-            }
+            } 
             const hashPassword = await bcrypt.hash(password, 10)
             const newUser = await userSchema.create({ name, email, password: hashPassword })
             return res.json({

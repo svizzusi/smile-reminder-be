@@ -5,7 +5,9 @@ const passport = require('passport')
 // const session = require('express-session')
 require('dotenv').config({path: './config/.env'})
 
+
 const patientRoutes = require('./routes/Patients')
+const userRoutes = require('./routes/Users')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -60,3 +62,4 @@ const connectDB = async () => {
 
 // Use your routes here
     app.use('/patients', patientRoutes)
+    app.use('/users', userRoutes)
