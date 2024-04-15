@@ -34,7 +34,37 @@ module.exports = {
         } catch (err) {
             handleErrorResponse(res, err)
         }
-    }
+    },
 
-    
+    login: async (req, res) => {
+        console.log(req)
+        console.log(req.body)
+        try {
+            const {email, password} = req.body;
+            const user = await userSchema.findOne({email: email});
+            if (user) {
+                const isPasswordValid = await bcrypt.compare(password, user.password)
+                if (isPasswordValid) {
+                    res.json({
+                        success: true,
+                        message: 'Login successful',
+                        userName: userName,
+                        id: user._id
+                    })
+                } else {
+                    res.json({
+                        success: false,
+                        message: 'Incorrect username or password'
+                    });
+                }
+            } else {
+                res.json({
+                    success: false,
+                    message: 'User does not exist'
+                })
+            }
+        } catch (err) {
+            handleErrorResponse(res, err)
+        }
+    }
 }
